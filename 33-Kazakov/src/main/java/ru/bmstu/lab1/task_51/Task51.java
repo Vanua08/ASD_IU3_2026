@@ -2,7 +2,7 @@ package ru.bmstu.lab1.task_51;
 
 import java.io.PrintStream;
 import java.util.Scanner;
-
+import ru.bmstu.lab1.MatrixInput;
 /**
  * Задача 51 — найти максимальный элемент каждой строки матрицы
  */
@@ -33,15 +33,7 @@ public class Task51 {
      * Считывает матрицу и выводит максимумы строк
      */
     public static void solve(Scanner input, PrintStream output) {
-        int rows = input.nextInt();
-        int columns = input.nextInt();
-        int[][] matrix = new int[rows][columns];
-
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
-                matrix[row][column] = input.nextInt();
-            }
-        }
+        int[][] matrix = MatrixInput.readMatrix(input);
 
         for (int maximum : maxRows(matrix)) {
             output.println(maximum);

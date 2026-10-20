@@ -2,7 +2,7 @@ package ru.bmstu.lab1.task_49;
 
 import java.io.PrintStream;
 import java.util.Scanner;
-
+import ru.bmstu.lab1.MatrixInput;
 /**
  * Задача 49. Вычислить сумму элементов каждой строки целочисленной матрицы
  */
@@ -27,15 +27,7 @@ public class Task49 {
      * Считывает размеры и элементы матрицы, затем выводит суммы строк
      */
     public static void solve(Scanner input, PrintStream output) {
-        int rows = input.nextInt();
-        int columns = input.nextInt();
-        int[][] matrix = new int[rows][columns];
-
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
-                matrix[row][column] = input.nextInt();
-            }
-        }
+        int[][] matrix = MatrixInput.readMatrix(input);
 
         for (long sum : sumRows(matrix)) {
             output.println(sum);
